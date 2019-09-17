@@ -1,0 +1,194 @@
+ul li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+}
+@font-face{
+    font-family: belleza;
+    src: url('../fonts/Belleza.ttf');
+}
+@font-face{
+    font-family: beautiful;
+    src: url('../fonts/beautiful.ttf');
+}
+.top{
+    height: 100px;
+    background-color: #302825;
+}
+.logo{
+    background: url('../img/logo/logo.png') no-repeat;
+    margin-top: 17px;
+    margin-left: 40px;		
+    width: 20%;
+}
+.menu{
+    width: 80%;
+}
+.menu .nav-link {
+    /* margin-left: 20px;	 */
+    margin-top: 20px;	
+    font-size: 17px;
+    font-family: belleza;
+    color: 	#d9ba8f !important;
+    padding-right: .5rem !important;
+    padding-left: 1.7rem !important;
+}
+.menu .nav-link i{
+    padding-left: 18px;
+    font-size: 18px;
+}
+ul.dropdown-menu.drp-mnu {
+    right: 0;
+    min-width: 130px;
+    text-align: center;
+    background: -webkit-linear-gradient(left, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);
+    padding: 1.5em 0;
+    margin: 0;
+    left:auto;
+}
+ul.dropdown-menu.drp-mnu li:first-child{
+    margin-bottom: .5em;
+}
+ul.dropdown-menu.drp-mnu li button {
+    font-family: belleza;
+    color: #fff;
+}
+ul.dropdown-menu.drp-mnu li a i {
+    padding-left: 1em;
+}
+#search-header{
+    display: none;
+}
+.sear{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background:#262626; 
+}
+.sear .form-inline{
+    width: 100%;
+}
+.sear .btn, .sear .form-control{
+    border-radius: 0px;
+    color: #fff;
+    background: #fff;
+}
+#search-header input{
+    color: #000;
+}
+.sear .form-control{
+    width: 90%;
+    border: 1px solid #fff;
+}
+.sear .btn{
+    padding: 6px 30px;
+    border: 1px solid #fff;
+    background: #A07A37;
+
+}
+.review_pies{
+    background: url('../img/background/nen_banh.png') no-repeat;
+    background-size: 100%;
+}
+.flexible_cake{
+    background: url('../img/background/nen_banh.png') no-repeat;
+    background-size: 100%;
+}
+
+.review_pies h3, .flexible_cake h3, .news h4 , .btn ,.judge h5 ,.customer h5,.customer h6{
+    font-family: belleza ;
+}
+.review_pies h4, .flexible_cake h4{
+    font-family: beautiful;
+}
+.bgc{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.pies{
+    transition-duration: 1s;
+}
+.pies:hover{
+    transform: translateY(-20px);
+}
+.pies img{
+    outline-width: 2px;
+    outline-color: #fff;
+    outline-style: solid;
+    outline-offset: 5px;
+}
+.collection , .judge{
+    background: url('../img/background/bg-1.jpg') no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+.show .title , .news .title , .judge h3 , .partner h3 , .name h3{
+    background: url('../img/logo/flower.png') no-repeat;
+    background-position: center bottom;
+    font-family:belleza ;
+    padding-bottom: 60px;	
+}
+.owl-prev, .owl-next{
+    font-size: 20px !important;
+    color: #888 !important;
+}
+.owl-prev{
+    position: absolute;
+    left: 0 !important;
+}
+.owl-next{
+    position: absolute;
+    right: 0 !important;
+}
+.item{
+    margin-left: 50px;	
+}
+.news , .partner{
+    background: linear-gradient(to right, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);
+}
+.news h3 , .news .paragraph{
+    color:#ffecd7;
+    font-family: beautiful;
+}
+.news h4{
+    color:#ffecd7;
+}
+.judge h3 {
+    color: #ed3523;
+}
+.contact{
+    background: url('../img/background/nen_3.jpg');
+    background-size: 100%;
+}
+.contact .row{
+    margin-left: 0;
+    margin-right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+.contact h3{
+    font-family: belleza;
+}
+.contact h4{
+    font-family: belleza;
+    color: #fff;
+}
+.contact h4:hover{
+    color: #ed3523;
+    margin-bottom: 15px;
+}
+.contact h4 i{
+    border: 1px solid #fff;
+    border-radius: 50%;
+    padding: 8px;
+}
+.make{
+    font-size: 15px;
+    font-family: belleza;
+    color: #fff;
+    background: #302825;
+    border-top: solid #ccc 1px;
+    padding: 13px 0px;
+}
+

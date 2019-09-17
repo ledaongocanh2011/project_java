@@ -1,0 +1,19 @@
+.detail{
+    margin-left: 0;
+    margin-right: 0;
+    background: -webkit-linear-gradient(left, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);
+}
+.detail h4 , .detail h3 ,.detail p{
+    font-family: belleza;
+}
+.detail .btn{
+    width: 100%;
+    color:#302825;
+    border: transparent;
+    border: 1px solid #302825;
+}
+.detail .btn:hover{
+    border: 1px solid #A07A37;
+    background: #302825;
+    color: #fff;
+}

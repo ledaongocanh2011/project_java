@@ -1,0 +1,27 @@
+.name{
+    background: #302825;
+}
+.tablink {
+    background: linear-gradient(to right, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);
+    font-family: belleza;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+    /*color: white;*/
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+#pies ,#flexible_cake{background: linear-gradient(to right, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);}

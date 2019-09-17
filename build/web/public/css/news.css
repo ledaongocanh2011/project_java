@@ -1,0 +1,7 @@
+.news-content{
+    background: -webkit-linear-gradient(left, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);
+}
+.news-content h3 , .news-content p{
+    font-family: belleza;
+    color: #fff;
+}

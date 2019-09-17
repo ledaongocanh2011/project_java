@@ -1,0 +1,7 @@
+.filling .row{
+    margin-left: 0;
+    margin-right: 0;
+}
+.cake{
+    background:  linear-gradient(to right, rgba(126,85,46,1) 0%, rgba(199,163,112,1) 100%);
+}
