@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import javax.sound.midi.Soundbank;
 import java.sql.ResultSet;
 import SQL.connect_SQL;
 
@@ -14,12 +15,11 @@ public final class filling_005fcake_jsp extends org.apache.jasper.runtime.HttpJs
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(5);
+    _jspx_dependants = new java.util.ArrayList<String>(4);
     _jspx_dependants.add("/layout/head.jsp");
     _jspx_dependants.add("/layout/header.jsp");
     _jspx_dependants.add("/layout/partner.jsp");
     _jspx_dependants.add("/layout/footer.jsp");
-    _jspx_dependants.add("/layout/js.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -57,10 +57,11 @@ public final class filling_005fcake_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
 
-   connect_SQL conn = new connect_SQL("root", "", "do_an_java");
-   conn.getConnect();
-//   ResultSet rs = conn.getFilling("filling_cake",1);
+    connect_SQL conn = new connect_SQL("root", "", "do_an_java");
+    conn.getConnect();
+    ResultSet rs = conn.getFilling(1);
 
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -84,6 +85,7 @@ public final class filling_005fcake_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("    <link rel=\"stylesheet\" href=\"public/css/filling_cake.css\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"public/css/detail.css\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"public/css/news.css\">\n");
+      out.write("    <link rel=\"stylesheet\" href=\"public/css/cart.css\">\n");
       out.write("</head>\n");
       out.write("\n");
       out.write("    <body>\n");
@@ -222,18 +224,32 @@ public final class filling_005fcake_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("                        <div class=\"row pt-5\">\n");
       out.write("                            <div class=\"col-6\">\n");
       out.write("                                <div class=\"form-group\">\n");
-      out.write("                                    <select id=\"inputState\" class=\"form-control\">\n");
+      out.write("                                    <select name=\"adfasdfds\" id=\"inputState\" class=\"form-control\">\n");
       out.write("                                        ");
+
+                                            while (rs.next()) {
+                                        
       out.write("\n");
-      out.write("                                        <option selected></option>\n");
-      out.write("                                        <option>...</option>\n");
+      out.write("                                        <option selected value=\"");
+ out.print(rs.getString("id")); 
+      out.write("\">\n");
+      out.write("                                            ");
+
+                                                out.print(rs.getString("ten_loai_nhan"));
+                                            
+      out.write("\n");
+      out.write("                                        </option>\n");
+      out.write("                                        <!--<option>...</option>-->\n");
+      out.write("                                        ");
+}
+      out.write("\n");
       out.write("                                    </select>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-6\">\n");
       out.write("                                <form class=\"form-inline float-right\">\n");
       out.write("                                    <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n");
-      out.write("                                    <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n");
+      out.write("                                    <button class=\"btn btn-outline-warning my-2 my-sm-0\" type=\"submit\">Search</button>\n");
       out.write("                                </form>\n");
       out.write("                            </div>\n");
       out.write("                        </div>\n");
@@ -359,42 +375,26 @@ public final class filling_005fcake_jsp extends org.apache.jasper.runtime.HttpJs
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("<script src=\"public/js/jquery-3.3.1.slim.min.js\"></script>\n");
-      out.write("<script src=\"public/js/popper.min.js\"></script>\n");
-      out.write("<script src=\"public/js/bootstrap.min.js\"></script>\n");
-      out.write("<script src=\"public/OwlCarousel/dist/owl.carousel.min.js\"></script>\n");
-      out.write("<script >\n");
-      out.write("    $(document).ready(function () {\n");
-      out.write("        $('.owl-carousel').owlCarousel({\n");
-      out.write("            loop: true,\n");
-      out.write("            margin: 10,\n");
-      out.write("            responsiveClass: true,\n");
-      out.write("            responsive: {\n");
-      out.write("                0: {\n");
-      out.write("                    items: 1,\n");
-      out.write("                    nav: true\n");
-      out.write("                },\n");
-      out.write("                600: {\n");
-      out.write("                    items: 2,\n");
-      out.write("                    nav: false\n");
-      out.write("                },\n");
-      out.write("                1000: {\n");
-      out.write("                    items: 4,\n");
-      out.write("                    nav: true,\n");
-      out.write("                    loop: false,\n");
-      out.write("                    margin: 20\n");
-      out.write("                }\n");
-      out.write("            }\n");
-      out.write("        });\n");
-      out.write("    })\n");
-      out.write("</script>\n");
-      out.write("<script>\n");
-      out.write("    $(document).ready(function () {\n");
-      out.write("        $('.search').click(function () {\n");
-      out.write("            $('#search-header').slideToggle(\"slow\");\n");
-      out.write("        });\n");
-      out.write("    });\n");
-      out.write("</script>");
+      out.write("<div class=\"partner pb-5\">\n");
+      out.write("    <h3 class=\"text-uppercase text-center title pt-5 text-warning\">khách hàng của chúng tôi</h3>\n");
+      out.write("    <div class=\"owl-carousel owl-theme pt-4\">\n");
+      out.write("        <div class=\"item\"  style=\"width: 10rem\">\n");
+      out.write("            <img src=\"public/img/partner/canon.png\" alt=\"\" class=\"img-fluid\">\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"item\" style=\"width: 9rem\">\n");
+      out.write("            <img src=\"public/img/partner/fpt.png\" alt=\"\" class=\"img-fluid\">\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"item\"  style=\"width: 9rem\">\n");
+      out.write("            <img src=\"public/img/partner/techcombank.png\" alt=\"\" class=\"img-fluid\">\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"item\" style=\"width: 8rem\">\n");
+      out.write("            <img src=\"public/img/partner/vincom.png\" alt=\"\" class=\"img-fluid\">\n");
+      out.write("        </div>\n");
+      out.write("        <div class=\"item\"  style=\"width: 10rem\">\n");
+      out.write("            <img src=\"public/img/partner/canon.png\" alt=\"\" class=\"img-fluid\">\n");
+      out.write("        </div>\n");
+      out.write("    </div>\n");
+      out.write("</div>\n");
       out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");

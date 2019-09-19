@@ -4,7 +4,14 @@
     Author     : Admin
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="SQL.connect_SQL"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    connect_SQL conn = new connect_SQL("root", "", "do_an_java");
+    conn.getConnect();
+    ResultSet rs = conn.getNews(2);
+%>
 <!DOCTYPE html>
 <html>
     <%@include file="layout/head.jsp" %>
@@ -13,12 +20,16 @@
         <main>
             <div class="container">
                 <div class="news-content">
-                    <h3 class="text-center text-uppercase pt-5">tên tin tức</h3>s
-                    <p class="text-center pb-5">mô tả ngắn</p>
-                    <div class="col-6">
-                        <img src="public/img/news/news1.png" alt="" class="img-fluid ">
+                    <%while (rs.next()) {%>
+                    <h3 class="text-center text-uppercase pt-5"><%=rs.getString("tieu_de")%></h3>s
+                    <p class="text-center pb-5"><%=rs.getString("tom_tat")%></p>
+                    <div class="row justify-content-center">
+                        <div class="col-6  align-self-center">
+                            <img src="public/img/news/<%=rs.getString("hinh_anh")%>" alt="" class="img-fluid ">
+                        </div>
                     </div>
-                    <p class="pt-5 pb-5 pl-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem minima omnis fugiat nemo sapiente error? Error natus 	molestias, dolorem nemo illum temporibus possimus laudantium fugit, culpa minima in incidunt officia!</p>
+                    <p class="pt-5 pb-5 pl-3"><%=rs.getString("noi_dung")%></p>
+                    <%}%>
                 </div>
             </div>
         </main>

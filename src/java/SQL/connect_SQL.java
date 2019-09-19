@@ -101,4 +101,14 @@ public class connect_SQL {
         }
         return rs;
     }
+    public ResultSet getNews(int id) {
+        try {
+            String sql = "SELECT * FROM news WHERE id =" +id;
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(connect_SQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
 }

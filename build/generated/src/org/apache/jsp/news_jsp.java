@@ -3,6 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.ResultSet;
+import SQL.connect_SQL;
 
 public final class news_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -52,6 +54,14 @@ public final class news_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+
+    connect_SQL conn = new connect_SQL("root", "", "do_an_java");
+    conn.getConnect();
+    ResultSet rs = conn.getNews(1);
+
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    ");
@@ -73,6 +83,7 @@ public final class news_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <link rel=\"stylesheet\" href=\"public/css/filling_cake.css\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"public/css/detail.css\">\n");
       out.write("    <link rel=\"stylesheet\" href=\"public/css/news.css\">\n");
+      out.write("    <link rel=\"stylesheet\" href=\"public/css/cart.css\">\n");
       out.write("</head>\n");
       out.write("\n");
       out.write("    <body>\n");
@@ -100,7 +111,7 @@ public final class news_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <a class=\"nav-link\" href=\"filling_cake.jsp\">Các loại nhân</a>\n");
       out.write("                            </li>\n");
       out.write("                            <li class=\"nav-item\">\n");
-      out.write("                                <a class=\"nav-link\" href=\"#\">Tin tức</a>\n");
+      out.write("                                <a class=\"nav-link\" href=\"news.jsp\">Tin tức</a>\n");
       out.write("                            </li>\n");
       out.write("                            <li class=\"nav-item\">\n");
       out.write("                                <a class=\"nav-link search\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i></a>\n");
@@ -126,9 +137,10 @@ public final class news_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </li>\n");
       out.write("                                </ul>\n");
       out.write("                            </li>\n");
-      out.write("\n");
-      out.write("                            <li class=\"nav-item\">\n");
-      out.write("                                <a class=\"nav-link\" href=\"#\"><img src=\"public/img/products/cart.png\" alt=\"\"></a>\n");
+      out.write("                            <li class=\"nav-item cart\">\n");
+      out.write("                                <a class=\"nav-link\" href=\"cart.jsp\"><img src=\"public/img/products/cart.png\" alt=\"\">\n");
+      out.write("                                    <span class=\"badge\" style=\"color: red;font-weight: bold;font-size: 15px\">3</span>\n");
+      out.write("                                </a>\n");
       out.write("                            </li>\n");
       out.write("                        </ul>\n");
       out.write("                    </div>\n");
@@ -203,12 +215,28 @@ public final class news_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <main>\n");
       out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"news-content\">\n");
-      out.write("                    <h3 class=\"text-center text-uppercase pt-5\">tên tin tức</h3>s\n");
-      out.write("                    <p class=\"text-center pb-5\">mô tả ngắn</p>\n");
-      out.write("                    <div class=\"col-6\">\n");
-      out.write("                        <img src=\"public/img/news/news1.png\" alt=\"\" class=\"img-fluid \">\n");
+      out.write("                    ");
+while (rs.next()) {
+      out.write("\n");
+      out.write("                    <h3 class=\"text-center text-uppercase pt-5\">");
+      out.print(rs.getString("tieu_de"));
+      out.write("</h3>s\n");
+      out.write("                    <p class=\"text-center pb-5\">");
+      out.print(rs.getString("tom_tat"));
+      out.write("</p>\n");
+      out.write("                    <div class=\"row justify-content-center\">\n");
+      out.write("                        <div class=\"col-6  align-self-center\">\n");
+      out.write("                            <img src=\"public/img/news/");
+      out.print(rs.getString("hinh_anh"));
+      out.write("\" alt=\"\" class=\"img-fluid \">\n");
+      out.write("                        </div>\n");
       out.write("                    </div>\n");
-      out.write("                    <p class=\"pt-5 pb-5 pl-3\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem minima omnis fugiat nemo sapiente error? Error natus \tmolestias, dolorem nemo illum temporibus possimus laudantium fugit, culpa minima in incidunt officia!</p>\n");
+      out.write("                    <p class=\"pt-5 pb-5 pl-3\">");
+      out.print(rs.getString("noi_dung"));
+      out.write("</p>\n");
+      out.write("                    ");
+}
+      out.write("\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </main>\n");

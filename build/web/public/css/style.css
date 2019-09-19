@@ -26,13 +26,22 @@ a{
     width: 80%;
 }
 .menu .nav-link {
-    /* margin-left: 20px;	 */
     margin-top: 20px;	
     font-size: 17px;
     font-family: belleza;
     color: 	#d9ba8f !important;
     padding-right: .5rem !important;
     padding-left: 1.7rem !important;
+}
+.menu .nav-link .badge{
+    font-size: 95%;
+    background: #fff;
+    color: #262626;
+    border-radius: 50%;
+}
+.cart:hover{
+    transform: scale(1.02, 1.02);
+    transition: transform 4s ease 0.2s;
 }
 .menu .nav-link i{
     padding-left: 18px;

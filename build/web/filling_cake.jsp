@@ -9,9 +9,9 @@
 <%@page import="SQL.connect_SQL"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-   connect_SQL conn = new connect_SQL("root", "", "do_an_java");
-   conn.getConnect();
-   ResultSet rs = conn.getFilling(1);
+    connect_SQL conn = new connect_SQL("root", "", "do_an_java");
+    conn.getConnect();
+    ResultSet rs = conn.getFilling(1);
 %>
 <!DOCTYPE html>
 <html>
@@ -29,24 +29,26 @@
                         <div class="row pt-5">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <select name="adfasdfds" id="inputState" class="form-control">
-                                        <%
-                                            while(rs.next()){
-                                        %>
-                                        <option selected value="<% out.print(rs.getString("id")); %>">
+                                    <form action="action" method="post">
+                                        <select name="adfasdfds" id="inputState" class="form-control">
                                             <%
-                                                out.print(rs.getString("ten_loai_nhan"));
+                                                while (rs.next()) {
                                             %>
-                                        </option>
-                                        <!--<option>...</option>-->
-                                        <%}%>
-                                    </select>
+                                            <option selected value="<% out.print(rs.getString("id")); %>">
+                                                <%
+                                                    out.print(rs.getString("ten_loai_nhan"));
+                                                %>
+                                            </option>
+                                            <!--<option>...</option>-->
+                                            <%}%>
+                                        </select>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <form class="form-inline float-right">
                                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
                                 </form>
                             </div>
                         </div>

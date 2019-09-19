@@ -21,7 +21,7 @@
                     <div class="owl-carousel owl-theme pt-4">
                         <div class="item">
                             <div class="card" style="width: 13rem">
-                                <a href="#">
+                                <a href="detail.jsp">
                                     <img src="public/img/products/d1.png" alt="" class=" card-img-top" >
                                 </a>
                                 <div class="card-body">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="item">
                             <div class="card" style="width: 13rem">
-                                <a href="#">
+                                <a href="detail.jsp">
                                     <img src="public/img/products/n2.png" alt="" class="img-fluid card-img-top">
                                 </a>
                                 <div class="card-body">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="item">
                             <div class="card" style="width: 13rem">
-                                <a href="#">
+                                <a href="detail.jsp">
                                     <img src="public/img/products/n4.png" alt="" class="img-fluid">
                                 </a>
                                 <div class="card-body">
@@ -54,7 +54,7 @@
                         </div>
                         <div class="item" style="width: 13rem">
                             <div class="card">
-                                <a href="#">
+                                <a href="detail.jsp">
                                     <img src="public/img/products/n1.png" alt="" class="img-fluid">
                                 </a>
                                 <div class="card-body">
@@ -65,7 +65,7 @@
                         </div>
                         <div class="item">
                             <div class="card"  style="width: 13rem">
-                                <a href="#">
+                                <a href="detail.jsp">
                                     <img src="public/img/products/d2.jpg" alt="" class="img-fluid">
                                 </a>
                                 <div class="card-body">
@@ -81,20 +81,20 @@
                     <h3 class="text-center text-uppercase title pt-3 text-warning">chân - thiện - mỹ</h3>
                     <div class="row pb-5 pt-5">
                         <div class="col-6">
-                            <img src="public/img/news/news1.png" alt="" class="img-fluid">
+                            <a href="news.jsp"><img src="public/img/news/news1.png" alt="" class="img-fluid"></a>
                         </div>
                         <div class="col-6">
                             <h4 class="text-uppercase pt-5 text-warning text-center">Chân thành mang tết yêu thương</h4>
                             <h4 class="paragraph pt-5">Hơn ai hết xuất thân từ vùng quê, từ nhỏ tôi đã yêu đã hiểu đã quý trọng cái không khí tết trung thu, đã biết nó không phải chỉ là một dịp lễ hội một năm có 1 lần mà là một 1 lần đó người ta nhận được gì và cho đi những gì ...</h4>
-                            <button type="button" class="btn btn-warning mt-5">Đọc thêm</button>
+                            <button type="button" class="btn btn-warning mt-5"><a href="news.jsp" class="text-dark">Đọc thêm</a></button>
                         </div>
                         <div class="col-6">
                             <h4 class="text-uppercase pt-5 text-warning text-center">Thiện tâm thiện ý sức khỏe người dùng</h4>
                             <h4 class="paragraph pt-5">Làm trong ngành nhà hàng khách sạn nên từ lâu tôi đã rất kĩ tính với chất lượng món ăn, khi tôi học nấu ăn tôi cũng đòi hỏi rất khắt khe ở mình, có thể tạm chấp nhận nấu chưa ngon nhưng tuyệt nhiên không cho mình cẩu thả về chất lượng… </h4>
-                            <button type="button" class="btn btn-warning mt-5">Đọc thêm</button>
+                            <button type="button" class="btn btn-warning mt-5"><a href="news.jsp" class="text-dark">Đọc thêm</a></button>
                         </div>
                         <div class="col-6">
-                            <img src="public/img/news/news2.png" alt="" class="img-fluid">
+                            <a href="news.jsp"><img src="public/img/news/news2.png" alt="" class="img-fluid"></a>
                         </div>
                     </div>
                 </div>
@@ -108,17 +108,17 @@
                         </h4>
                         <div class="row ">
                             <div class="col-4 pies">
-                                <a href="#">
+                                <a href="products.jsp">
                                     <img src="public/img/products/banh-nuong-1.jpg" alt="" class="" style="width: 88%">
                                 </a>
                             </div>
                             <div class="col-4 pies ">
-                                <a href="#">
+                                <a href="products.jsp">
                                     <img src="public/img/products/banh-nuong-2.jpg" alt="" class="img-fluid" style="width: 88%">
                                 </a>
                             </div>
                             <div class="col-4 pies">
-                                <a href="#">
+                                <a href="products.jsp">
                                     <img src="public/img/products/banh-nuong-3.jpg" alt="" class="img-fluid" style="width: 88%">
                                 </a>
                             </div>
@@ -135,17 +135,17 @@
                         </h4>
                         <div class="row ">
                             <div class="col-4 pies">
-                                <a href="#">
+                                <a href="products.jsp">
                                     <img src="public/img/products/banh-deo-1.jpg" alt="" class="" style="width: 88%">
                                 </a>
                             </div>
                             <div class="col-4 pies ">
-                                <a href="#">
+                                <a href="products.jsp">
                                     <img src="public/img/products/banh-deo-2.jpg" alt="" class="img-fluid" style="width: 88%">
                                 </a>
                             </div>
                             <div class="col-4 pies">
-                                <a href="#">
+                                <a href="products.jsp">
                                     <img src="public/img/products/banh-deo-3.jpg" alt="" class="img-fluid" style="width:88%">
                                 </a>
                             </div>

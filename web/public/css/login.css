@@ -1,0 +1,12 @@
+body{
+    background: url('../img/background/bg-mooncake.jpg') no-repeat;
+    background-size: cover;
+}
+.login{
+    background: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+    padding: 50px 20px;
+}
+.login h1{
+    font-size: 30px;
+}

@@ -51,9 +51,10 @@
                                     </li>
                                 </ul>
                             </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><img src="public/img/products/cart.png" alt=""></a>
+                            <li class="nav-item cart">
+                                <a class="nav-link" href="cart.jsp"><img src="public/img/products/cart.png" alt="">
+                                    <span class="badge" style="color: red;font-weight: bold;font-size: 15px">3</span>
+                                </a>
                             </li>
                         </ul>
                     </div>

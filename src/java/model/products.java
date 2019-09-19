@@ -10,6 +10,7 @@ package model;
  * @author Admin
  */
 public class products {
+
     private int id;
     private String ma_san_pham;
     private String ten_san_pham;
@@ -18,14 +19,13 @@ public class products {
     private int ma_loai;
     private int ma_loai_nhan;
     private String hinh_anh;
-    private String tom_tat;
     private String noi_dung;
     private int trang_thai;
 
     public products() {
     }
 
-    public products(int id, String ma_san_pham, String ten_san_pham, double gia_san_pham, double gia_khuyen_mai, int ma_loai, int ma_loai_nhan, String hinh_anh, String tom_tat, String noi_dung, int trang_thai) {
+    public products(int id, String ma_san_pham, String ten_san_pham, double gia_san_pham, double gia_khuyen_mai, int ma_loai, int ma_loai_nhan, String hinh_anh, String noi_dung, int trang_thai) {
         this.id = id;
         this.ma_san_pham = ma_san_pham;
         this.ten_san_pham = ten_san_pham;
@@ -34,7 +34,6 @@ public class products {
         this.ma_loai = ma_loai;
         this.ma_loai_nhan = ma_loai_nhan;
         this.hinh_anh = hinh_anh;
-        this.tom_tat = tom_tat;
         this.noi_dung = noi_dung;
         this.trang_thai = trang_thai;
     }
@@ -69,10 +68,6 @@ public class products {
 
     public String getHinh_anh() {
         return hinh_anh;
-    }
-
-    public String getTom_tat() {
-        return tom_tat;
     }
 
     public String getNoi_dung() {
@@ -115,10 +110,6 @@ public class products {
         this.hinh_anh = hinh_anh;
     }
 
-    public void setTom_tat(String tom_tat) {
-        this.tom_tat = tom_tat;
-    }
-
     public void setNoi_dung(String noi_dung) {
         this.noi_dung = noi_dung;
     }
@@ -126,8 +117,5 @@ public class products {
     public void setTrang_thai(int trang_thai) {
         this.trang_thai = trang_thai;
     }
-    
-    
-     
-    
+
 }

@@ -20,4 +20,5 @@
     <link rel="stylesheet" href="public/css/filling_cake.css">
     <link rel="stylesheet" href="public/css/detail.css">
     <link rel="stylesheet" href="public/css/news.css">
+    <link rel="stylesheet" href="public/css/cart.css">
 </head>

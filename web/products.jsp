@@ -37,7 +37,7 @@
                                     <% while (rs.next()) {%>
                                     <div class="col-3">     
                                         <div class="card" style="width: 13rem">
-                                            <a href="#">
+                                            <a href="detail.jsp">
                                                 <img src="public/img/products/<%= rs.getString("hinh_anh")%>" alt="" class=" card-img-top" >
                                             </a>
                                             <div class="card-body">
@@ -57,7 +57,7 @@
                                     <% while (rs1.next()) {%>
                                     <div class="col-3">     
                                         <div class="card" style="width: 13rem">
-                                            <a href="#">
+                                            <a href="detail.jsp">
                                                 <img src="public/img/products/<%= rs1.getString("hinh_anh")%>" alt="" class=" card-img-top img-fluid" >
                                             </a>
                                             <div class="card-body">
