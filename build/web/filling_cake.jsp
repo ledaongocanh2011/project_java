@@ -4,6 +4,9 @@
     Author     : Admin
 --%>
 
+<%@page import="model.products"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.filling_cake"%>
 <%@page import="javax.sound.midi.Soundbank"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="SQL.connect_SQL"%>
@@ -11,7 +14,16 @@
 <%
     connect_SQL conn = new connect_SQL("root", "", "do_an_java");
     conn.getConnect();
-    ResultSet rs = conn.getFilling(1);
+    ArrayList<filling_cake> arr = conn.getFillingCake(-1);
+    int type = 0;
+    if (request.getParameter("type") == null) {
+        type = 1;
+    } else {
+        String maloai = request.getParameter("type");
+        type = Integer.parseInt(maloai);
+    }
+    ResultSet rs = conn.getPrType(type);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -29,18 +41,13 @@
                         <div class="row pt-5">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <form action="action" method="post">
-                                        <select name="adfasdfds" id="inputState" class="form-control">
-                                            <%
-                                                while (rs.next()) {
+                                    <form class="sb" action="fillingCake" method="post">
+                                        <select name="type" id="inputState" class="form-control">
+                                            <%                                                for (int i = 0; i < arr.size(); i++) {
                                             %>
-                                            <option selected value="<% out.print(rs.getString("id")); %>">
-                                                <%
-                                                    out.print(rs.getString("ten_loai_nhan"));
-                                                %>
-                                            </option>
-                                            <!--<option>...</option>-->
-                                            <%}%>
+                                            <option value="<% out.print(arr.get(i).getId()); %>"<% if( type == arr.get(i).getId() ){out.print("selected");} %> >
+                                                <% out.print(arr.get(i).getTen_loai_nhan()); %>
+                                                <%}%>
                                         </select>
                                     </form>
                                 </div>
@@ -55,50 +62,26 @@
                     </div>
                     <div class="cake pt-5">
                         <div class="row">
+                            <%
+                                while (rs.next()) {
+                                    {
+                            %>
+
                             <div class="col-3">
                                 <div class="card" style="width: 13rem">
                                     <a href="#">
                                         <img src="public/img/products/d1.png" alt="" class=" card-img-top" >
                                     </a>
                                     <div class="card-body">
-                                        <h5 class="	text-center text-danger card-title"> bánh dẻo</h5>
+                                        <h5 class="	text-center text-danger card-title"> <%=rs.getString("ten_san_pham") %></h5>
                                         <p class="card-text">100,000</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
-                                <div class="card" style="width: 13rem">
-                                    <a href="#">
-                                        <img src="public/img/products/d1.png" alt="" class=" card-img-top" >
-                                    </a>
-                                    <div class="card-body">
-                                        <h5 class="	text-center text-danger card-title"> bánh dẻo</h5>
-                                        <p class="card-text">100,000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card" style="width: 13rem">
-                                    <a href="#">
-                                        <img src="public/img/products/d1.png" alt="" class=" card-img-top" >
-                                    </a>
-                                    <div class="card-body">
-                                        <h5 class="	text-center text-danger card-title"> bánh dẻo</h5>
-                                        <p class="card-text">100,000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="card" style="width: 13rem">
-                                    <a href="#">
-                                        <img src="public/img/products/d1.png" alt="" class=" card-img-top" >
-                                    </a>
-                                    <div class="card-body">
-                                        <h5 class="	text-center text-danger card-title"> bánh dẻo</h5>
-                                        <p class="card-text">100,000</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <%
+                                    }
+                                }
+                            %>
                         </div>
                     </div>
                 </div>
@@ -107,5 +90,24 @@
         </main>
         <%@include file="layout/footer.jsp" %>
         <%@include file="layout/js.jsp" %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            $('select').change(function () {
+                var val = $(this).children('option:selected').text();
+//                window.location = "ajax";
+                $.ajax({
+                    url: 'fillingCake',
+                    type: 'GET',
+                    data: {name: val},
+                    success: function (data) {
+                        console.log(data);
+                    }
+
+                });
+            });
+            $('select').change(function () {
+                $('.sb').submit();
+            });
+        </script>
     </body>
 </html>

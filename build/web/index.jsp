@@ -7,11 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%@include file="layout/head.jsp" %>
-
+    <jsp:include page="layout/head.jsp" />
     <body>
-        <%@include file="layout/header.jsp" %>
-        <%@include file="layout/nav.jsp" %>
+        <jsp:include page="layout/header.jsp" />
+        <jsp:include page="layout/nav.jsp" />
         <main>
             <div class="container">
                 <div class="collection">
@@ -198,10 +197,10 @@
                         </div>
                     </div>
                 </div>
-                <%@include file="layout/partner.jsp" %>
+                <jsp:include page="layout/partner.jsp" />
             </div>
         </main>
-        <%@include file="layout/footer.jsp" %>
-        <%@include file="layout/js.jsp" %>
+        <jsp:include page="layout/footer.jsp" />
+        <jsp:include page="layout/js.jsp" />
     </body>
 </html>

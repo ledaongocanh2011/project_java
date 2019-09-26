@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.filling_cake;
 import model.products;
 
 /**
@@ -76,34 +77,118 @@ public class connect_SQL {
         return conn;
     }
 //  hàm lấy dữ liệu từ cơ sở dữ liệu 
-//    nếu t thay lsoibanh =2 tuong đương với bánh dẻo, loaibanh=1 tương đuqong với bánh nướng
-//            viết như ban nãy. lấy ra được theo cái loaibanh =1;
-//            nhuqng, t muốn lấy cả bánh nướng có loaibanh =2, thì t phải sửa
-//    bsys giờ, t muốn cái giá trị 1, 2 k cần phải thay đổi, mỗi khi t chọn bánh nướng , nó ẽ hiểu là lấy các loại bánh có loaibanh =1, còn kích vào bánh dẻo thì loaibanh =2, và hiển thị theo cái vùng mà t phân ra như trên giao diện
 
     public ResultSet getData(String tbName, int loaibanh) {
         try {
+            Class.forName("com.mysql.jdbc.Driver");
             String sql = "select * from " + tbName + " where ma_loai = " + loaibanh;
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
         } catch (SQLException ex) {
             Logger.getLogger(connect_SQL.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return rs;
-    }
-    public ResultSet getFilling(int loaiNhan ){
-        try {
-            String sql = "SELECT * FROM `filling_cake` WHERE id = " + loaiNhan ;
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery(sql);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(connect_SQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return rs;
     }
+//    lấy loại nhân
+
+    public ArrayList<filling_cake> getFillingCake(int id) {
+//        đưa vào mảng
+        ArrayList<filling_cake> arr = null;
+        String sql;
+        if (id == -1) {
+            sql = "SELECT * FROM `filling_cake`";
+        } else {
+            sql = "SELECT * FROM `filling_cake` WHERE id =" + id;
+        }
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            arr = new ArrayList<filling_cake>();
+//          lấy giá trị của mảng
+            while (rs.next()) {
+                filling_cake loainhan = new filling_cake(rs.getInt(1), rs.getString(2));
+                arr.add(loainhan);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(connect_SQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr;
+    }
+//    lấy sản phẩm theo id
+
+    public products getProduct(int id) {
+        products sp = null;
+        String sql = "SELECT * FROM `products` WHERE id =" + id;
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+//            lấy ra giá tri của bảng
+            if (rs.next()) {
+                sp = new products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(connect_SQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sp;
+    }
+//    tìm kiếm sản phẩm
+
+    public ArrayList<products> Search(String search) {
+        ArrayList<products> arr = null;
+        String sql = "SELECT * FROM `products` WHERE name LIKE '%" + search + "%'";
+
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            arr = new ArrayList<products>();
+            while (rs.next()) {
+                products sp = new products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+                arr.add(sp);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(connect_SQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr;
+    }
+// lấy sản phẩm theo loại 
+//==================================================================================================
+//==================================================================================================
+//==================================================================================================
+//    public ArrayList<products> getProductType(int type) {
+//        ArrayList<products> arr = null;
+//        String sql = "SELECT * FROM `products` WHERE ma_loai = 4";
+//        try {
+//            stmt = conn.createStatement();
+//            rs = stmt.executeQuery(sql);
+//            arr = new ArrayList<products>();
+//            while (rs.next()) {
+//                products sp = new products(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getDouble(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9), rs.getInt(10));
+//                arr.add(sp);
+//            }
+//        } catch (Exception e) {
+//        }
+//        return arr;
+//    }
+    
+    public ResultSet getPrType(int type){
+        String sql = "select * from products where ma_loai =" +type;
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+        } catch (Exception e) {
+        }
+        return rs;
+    }
+    //==================================================================================================
+//==================================================================================================
+//==================================================================================================
+//    lấy tin tức
+
     public ResultSet getNews(int id) {
         try {
-            String sql = "SELECT * FROM news WHERE id =" +id;
+            String sql = "SELECT * FROM news WHERE id =" + id;
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
         } catch (SQLException ex) {
@@ -111,4 +196,26 @@ public class connect_SQL {
         }
         return rs;
     }
+//    đăng nhập
+
+    public int checkLogin(String user, String pass) {
+        String sql = "SELECT * FROM admin WHERE email = '" + user + "'";
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                if (rs.getString("password").equals(pass)) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
 }

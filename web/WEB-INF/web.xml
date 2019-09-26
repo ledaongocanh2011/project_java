@@ -2,11 +2,19 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>NewServlet</servlet-name>
-        <servlet-class>controler.NewServlet</servlet-class>
+        <servlet-class>controler.xuLyLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>fillingCake</servlet-name>
+        <servlet-class>controler.fillingCake</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>fillingCake</servlet-name>
+        <url-pattern>/fillingCake</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="SQL.connect_SQL"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,10 +18,10 @@
             <div class="row justify-content-center">
                 <div class="col-4 align-self-center login mt-5">
                     <h1 class="text-center font-weight-light text-uppercase text-secondary">bảng đăng nhập</h1>
-                    <form action="" method="post" class="pt-4">
+                    <form action="xuLyLogin" method="post" class="pt-4">
                         <fieldset class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Nhập Email">
+                            <label for="account">Tài khoản: </label>
+                            <input type="text" class="form-control" id="account" name="account" placeholder="Nhập tài khoản">
                         </fieldset>
                         <fieldset class="form-group">
                             <label for="password">Mật khẩu:</label>
